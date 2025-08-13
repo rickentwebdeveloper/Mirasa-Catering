@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mirasa Catering</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #00b894, #55efc4);
+      color: white;
+      text-align: center;
+    }
+
+    /* ===== Top Bar ===== */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+	.top-icons {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-right: 20px; /* Geser icon ke kiri */
+	}
+
+    .icon-btn {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 8px;
+	}
+
+    /* ===== Dropdown Menu ===== */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 5px);
+      right: 0;
+      background: #fff;
+      color: #111;
+      min-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+      transition: all 0.25s ease;
+    }
+
+    .dropdown-menu.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .dropdown-menu a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #111;
+    }
+
+    .dropdown-menu a:hover {
+      background: #f5f5f5;
+    }
+
+   /* ===== Title Animation ===== */
+.typewriter{
+  font-size: 64px;
+  font-weight: bold;
+  padding-top: 100px;        /* bebas, tidak pengaruh caret lagi */
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  width: fit-content;
+  position: relative;        /* penting untuk caret ::after */
+}
+
+    /* ===== Subtext ===== */
+    p {
+      font-size: 18px;
+      margin-top: 5px;
+    }
+
+    /* ===== Button Menu ===== */
+    .menu-button {
+      background: #fff;
+      color: #00b894;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .menu-button:hover {
+      background: #dfe6e9;
+    }
+
+    /* ===== Footer ===== */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    }
+	
+	body {
+  margin: 0;
+  font-family: sans-serif;
+  background: url('sawah.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+/* Overlay gelap di atas gambar */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4); /* ubah angka kalau mau lebih gelap/terang */
+  z-index: 0;
+}
+/* Animasi teks berjalan bolak-balik */
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 6s linear infinite alternate;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+/* Biar teks dan elemen lain tetap di atas overlay */
+body * {
+  position: relative;
+  z-index: 1;
+}
+	
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="logo">Mirasa Tri Tama</div>
+    <div class="top-icons">
+      <!-- Dropdown -->
+      <div class="dropdown">
+        <button class="icon-btn" id="contactIcon" aria-label="Kontak">
+          <!-- Ikon Orang -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
+          </svg>
+        </button>
+        <div class="dropdown-menu" id="contactMenu">
+          <a href="mailto:mirasatri566@gmail.com">📧 Email</a>
+          <a href="https://wa.me/62858383841993" target="_blank">📱 WhatsApp</a>
+          <a href="https://instagram.com/username" target="_blank">📷 Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Title & Subtitle -->
+  <h1 class="typewriter"></h1>
+  <p>Rasa yang Tak Terlupakan</p>
+  <a href="menu.html" class="menu-button">LIHAT MENU</a>
+
+  <!-- Footer -->
+ <div class="bottom-bar">
+  <span class="marquee">
+    &copy; Tanjung Enim | Sumatera Selatan
+  </span>
+</div>
+
+  <script>
+// ===== ANIMASI KETIK =====
+document.addEventListener('DOMContentLoaded', () => {
+  const el   = document.querySelector('.typewriter');
+  const text = 'Mirasa Catering';
+  if (!el) return;
+
+  el.textContent = '';     // mulai dari kosong
+  let i = 0, dir = 1;      // dir: 1 maju, -1 mundur
+
+  const tick = () => {
+    el.textContent = text.slice(0, i);
+    i += dir;
+
+    if (i > text.length) { dir = -1; setTimeout(tick, 800); return; } // jeda di ujung
+    if (i < 0)            { dir =  1; setTimeout(tick, 300); return; } // balik lagi
+    setTimeout(tick, 120);
+  };
+  tick();
+});
+
+// ===== DROPDOWN KONTAK =====
+const contactBtn  = document.getElementById('contactIcon');
+const contactMenu = document.getElementById('contactMenu');
+
+if (contactBtn && contactMenu){
+  contactBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    contactMenu.classList.toggle('show');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!contactMenu.contains(e.target) && !contactBtn.contains(e.target)) {
+      contactMenu.classList.remove('show');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') contactMenu.classList.remove('show');
+  });
+}
+</script>
+
+</body>
+</html>
